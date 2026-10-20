@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPU Perf Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo"><span></span><span></span><span></span><span></span></div>
+      <div>
+        <div class="title">GPU PERF LAB</div>
+        <div id="gpu-name" class="sub">connecting…</div>
+      </div>
+    </div>
+    <div class="controls">
+      <div id="size-chips" class="chips" title="Matrix sizes to benchmark (N x N x N)"></div>
+      <button id="run" class="run">▶ Run benchmark</button>
+      <button id="stop" class="ghost hidden">■ Stop</button>
+    </div>
+  </header>
+
+  <section class="telemetry" id="telemetry"></section>
+
+  <main class="grid">
+    <section class="card roofline-card">
+      <div class="card-head">
+        <div>
+          <h2>Roofline</h2>
+          <p class="hint">Achieved GFLOPS vs. global-load intensity. Roofs are measured on this GPU.</p>
+        </div>
+        <div id="n-chips" class="chips small"></div>
+      </div>
+      <div class="canvas-wrap tall"><canvas id="roofline"></canvas><div id="tip" class="tip hidden"></div></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2>Kernel race</h2>
+          <p class="hint" id="race-hint">GFLOPS at the selected size, vs. cuBLAS</p>
+        </div>
+      </div>
+      <div id="race" class="race"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2>Size sweep</h2>
+          <p class="hint">GFLOPS as the matrices grow</p>
+        </div>
+      </div>
+      <div class="canvas-wrap"><canvas id="sweep"></canvas></div>
+      <div id="legend" class="legend"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <h2>Ceilings</h2>
+          <p class="hint">Micro-benchmarks run before the kernels</p>
+        </div>
+      </div>
+      <div id="ceilings" class="ceilings"></div>
+      <pre id="log" class="log"></pre>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

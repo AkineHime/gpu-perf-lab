@@ -1,0 +1,8 @@
+build/
+.venv/
+__pycache__/
+results/latest.jsonl
+*.exp
+*.lib
+*.pdb
+*.partial

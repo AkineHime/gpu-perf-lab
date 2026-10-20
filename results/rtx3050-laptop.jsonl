@@ -1,0 +1,39 @@
+{"type":"device","name":"NVIDIA GeForce RTX 3050 6GB Laptop GPU","cc":"8.6","sms":20,"vram_mb":6143,"l2_kb":1536,"smem_per_block_kb":48,"cuda_runtime":13040}
+{"type":"probe","name":"dram_bandwidth","gbps":155.9}
+{"type":"probe","name":"fp32_peak","gflops":9551.0}
+{"type":"result","kernel":"cublas","name":"cuBLAS","n":256,"ms":0.0215,"gflops":1560.4,"pct_cublas":100.0,"max_rel_err":0,"load_intensity":null}
+{"type":"result","kernel":"v0_naive","name":"Naive","idea":"one thread per output, uncoalesced","n":256,"ms":0.5741,"gflops":58.4,"pct_cublas":3.7,"max_rel_err":5.18e-07,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v1_coalesced","name":"Coalesced","idea":"warp reads consecutive floats","n":256,"ms":0.0743,"gflops":451.4,"pct_cublas":28.9,"max_rel_err":5.18e-07,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v2_smem","name":"Shared-memory tiling","idea":"32x32 tiles staged in smem","n":256,"ms":0.0594,"gflops":565.0,"pct_cublas":36.2,"max_rel_err":5.18e-07,"correct":true,"load_intensity":8.000}
+{"type":"result","kernel":"v3_tile1d","name":"1D register tiling","idea":"8 outputs per thread","n":256,"ms":0.0324,"gflops":1036.1,"pct_cublas":66.4,"max_rel_err":5.18e-07,"correct":true,"load_intensity":16.000}
+{"type":"result","kernel":"v4_tile2d","name":"2D register tiling","idea":"8x8 outer product per thread","n":256,"ms":0.0584,"gflops":574.9,"pct_cublas":36.8,"max_rel_err":5.18e-07,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"v5_vectorized","name":"Vectorized float4","idea":"128-bit loads, transposed A tile","n":256,"ms":0.0478,"gflops":702.3,"pct_cublas":45.0,"max_rel_err":5.18e-07,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"cublas","name":"cuBLAS","n":512,"ms":0.1137,"gflops":2361.7,"pct_cublas":100.0,"max_rel_err":0,"load_intensity":null}
+{"type":"result","kernel":"v0_naive","name":"Naive","idea":"one thread per output, uncoalesced","n":512,"ms":3.6721,"gflops":73.1,"pct_cublas":3.1,"max_rel_err":1.09e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v1_coalesced","name":"Coalesced","idea":"warp reads consecutive floats","n":512,"ms":0.4547,"gflops":590.4,"pct_cublas":25.0,"max_rel_err":1.09e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v2_smem","name":"Shared-memory tiling","idea":"32x32 tiles staged in smem","n":512,"ms":0.3727,"gflops":720.2,"pct_cublas":30.5,"max_rel_err":1.09e-06,"correct":true,"load_intensity":8.000}
+{"type":"result","kernel":"v3_tile1d","name":"1D register tiling","idea":"8 outputs per thread","n":512,"ms":0.1504,"gflops":1785.2,"pct_cublas":75.6,"max_rel_err":1.09e-06,"correct":true,"load_intensity":16.000}
+{"type":"result","kernel":"v4_tile2d","name":"2D register tiling","idea":"8x8 outer product per thread","n":512,"ms":0.1116,"gflops":2405.0,"pct_cublas":101.8,"max_rel_err":1.09e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"v5_vectorized","name":"Vectorized float4","idea":"128-bit loads, transposed A tile","n":512,"ms":0.1022,"gflops":2626.4,"pct_cublas":111.2,"max_rel_err":1.09e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"cublas","name":"cuBLAS","n":1024,"ms":0.4004,"gflops":5363.6,"pct_cublas":100.0,"max_rel_err":0,"load_intensity":null}
+{"type":"result","kernel":"v0_naive","name":"Naive","idea":"one thread per output, uncoalesced","n":1024,"ms":29.1523,"gflops":73.7,"pct_cublas":1.4,"max_rel_err":1.56e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v1_coalesced","name":"Coalesced","idea":"warp reads consecutive floats","n":1024,"ms":3.8779,"gflops":553.8,"pct_cublas":10.3,"max_rel_err":1.56e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v2_smem","name":"Shared-memory tiling","idea":"32x32 tiles staged in smem","n":1024,"ms":3.2727,"gflops":656.2,"pct_cublas":12.2,"max_rel_err":1.56e-06,"correct":true,"load_intensity":8.000}
+{"type":"result","kernel":"v3_tile1d","name":"1D register tiling","idea":"8 outputs per thread","n":1024,"ms":1.0291,"gflops":2086.7,"pct_cublas":38.9,"max_rel_err":1.56e-06,"correct":true,"load_intensity":16.000}
+{"type":"result","kernel":"v4_tile2d","name":"2D register tiling","idea":"8x8 outer product per thread","n":1024,"ms":0.8059,"gflops":2664.7,"pct_cublas":49.7,"max_rel_err":1.56e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"v5_vectorized","name":"Vectorized float4","idea":"128-bit loads, transposed A tile","n":1024,"ms":0.5080,"gflops":4227.6,"pct_cublas":78.8,"max_rel_err":1.56e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"cublas","name":"cuBLAS","n":2048,"ms":3.2500,"gflops":5286.0,"pct_cublas":100.0,"max_rel_err":0,"load_intensity":null}
+{"type":"result","kernel":"v0_naive","name":"Naive","idea":"one thread per output, uncoalesced","n":2048,"ms":231.3247,"gflops":74.3,"pct_cublas":1.4,"max_rel_err":2.04e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v1_coalesced","name":"Coalesced","idea":"warp reads consecutive floats","n":2048,"ms":30.4074,"gflops":565.0,"pct_cublas":10.7,"max_rel_err":2.04e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v2_smem","name":"Shared-memory tiling","idea":"32x32 tiles staged in smem","n":2048,"ms":25.2815,"gflops":679.5,"pct_cublas":12.9,"max_rel_err":2.04e-06,"correct":true,"load_intensity":8.000}
+{"type":"result","kernel":"v3_tile1d","name":"1D register tiling","idea":"8 outputs per thread","n":2048,"ms":8.0782,"gflops":2126.7,"pct_cublas":40.2,"max_rel_err":2.04e-06,"correct":true,"load_intensity":16.000}
+{"type":"result","kernel":"v4_tile2d","name":"2D register tiling","idea":"8x8 outer product per thread","n":2048,"ms":5.4384,"gflops":3159.0,"pct_cublas":59.8,"max_rel_err":2.04e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"v5_vectorized","name":"Vectorized float4","idea":"128-bit loads, transposed A tile","n":2048,"ms":3.5031,"gflops":4904.2,"pct_cublas":92.8,"max_rel_err":2.04e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"cublas","name":"cuBLAS","n":4096,"ms":26.0065,"gflops":5284.8,"pct_cublas":100.0,"max_rel_err":0,"load_intensity":null}
+{"type":"result","kernel":"v0_naive","name":"Naive","idea":"one thread per output, uncoalesced","n":4096,"ms":1846.1857,"gflops":74.4,"pct_cublas":1.4,"max_rel_err":3.42e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v1_coalesced","name":"Coalesced","idea":"warp reads consecutive floats","n":4096,"ms":243.8532,"gflops":563.6,"pct_cublas":10.7,"max_rel_err":3.42e-06,"correct":true,"load_intensity":0.250}
+{"type":"result","kernel":"v2_smem","name":"Shared-memory tiling","idea":"32x32 tiles staged in smem","n":4096,"ms":202.3045,"gflops":679.4,"pct_cublas":12.9,"max_rel_err":3.42e-06,"correct":true,"load_intensity":8.000}
+{"type":"result","kernel":"v3_tile1d","name":"1D register tiling","idea":"8 outputs per thread","n":4096,"ms":63.3629,"gflops":2169.1,"pct_cublas":41.0,"max_rel_err":3.42e-06,"correct":true,"load_intensity":16.000}
+{"type":"result","kernel":"v4_tile2d","name":"2D register tiling","idea":"8x8 outer product per thread","n":4096,"ms":43.2998,"gflops":3174.1,"pct_cublas":60.1,"max_rel_err":3.42e-06,"correct":true,"load_intensity":32.000}
+{"type":"result","kernel":"v5_vectorized","name":"Vectorized float4","idea":"128-bit loads, transposed A tile","n":4096,"ms":27.5651,"gflops":4986.0,"pct_cublas":94.3,"max_rel_err":3.42e-06,"correct":true,"load_intensity":32.000}
+{"type":"done"}
